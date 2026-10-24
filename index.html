@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel de feedback</title>
+  <style>
+    body { font-family: Arial, sans-serif; color: #1F2A44; background: #F7F5EF; padding: 24px; }
+    fieldset { border: 0; padding: 0; margin: 0 0 24px; }
+    legend { font-size: 1.5rem; margin-bottom: 16px; }
+    label { display: inline-flex; align-items: center; gap: 8px; padding: 16px; margin: 0 12px 12px 0;
+            background: #fff; border: 2px solid #1F2A44; border-radius: 8px; cursor: pointer; }
+    label:hover { background: #EDE7D8; }
+    input:focus-visible, button:focus-visible { outline: 3px solid #A84A1A; outline-offset: 2px; }
+    button { min-width: 24px; min-height: 44px; padding: 0 24px; font-size: 1rem;
+             color: #fff; background: #1F2A44; border: 0; border-radius: 8px; cursor: pointer; }
+    button:hover { background: #33446b; }
+    #aviso { margin-top: 24px; font-size: 1.25rem; }
+  </style>
+</head>
+<body>
+  <form id="feedback">
+    <fieldset>
+      <legend>Como foi o seu atendimento?</legend>
+      <label><input type="radio" name="nota" value="insatisfeito"> 😞 Insatisfeito</label>
+      <label><input type="radio" name="nota" value="neutro"> 😐 Neutro</label>
+      <label><input type="radio" name="nota" value="satisfeito"> 😀 Satisfeito</label>
+    </fieldset>
+    <button type="submit">Enviar</button>
+  </form>
+
+  <div id="aviso" aria-live="polite"></div>
+
+  <script>
+    document.getElementById('feedback').addEventListener('submit', function (e) {
+      e.preventDefault();
+      document.getElementById('aviso').textContent = 'Obrigado pelo seu feedback!';
+    });
+  </script>
+</body>
+</html>
